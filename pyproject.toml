@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rtgrid"
+version = "0.1.0"
+description = "Return-conditioned LLM policies on MiniGrid-generated gridworlds"
+requires-python = ">=3.10"
+dependencies = ["numpy", "minigrid>=3.0", "gymnasium", "regex"]
+
+[project.optional-dependencies]
+llm = ["torch", "transformers>=4.51", "peft", "accelerate"]
+interp = ["transformer-lens>=4.0"]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+include = ["rtgrid*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
